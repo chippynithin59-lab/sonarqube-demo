@@ -16,7 +16,7 @@ pipeline {
             steps {
                 // *** FIX: Explicitly specify the branch ***
                 git branch: 'main', 
-                    url: 'https://github.com/Irfaanpk/sonarqube-demo.git'
+                    url: 'https://github.com/chippynithin59-lab/sonarqube-demo.git'
             }
         }
 
