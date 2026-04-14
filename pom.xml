@@ -19,7 +19,7 @@
 
         <!-- SonarQube properties -->
         <sonar.projectKey>java-demo</sonar.projectKey>
-        <sonar.projectName>Java Demo Project</sonar.projectName>
+        <sonar.projectName>java-demo project</sonar.projectName>
     </properties>
 
     <build>
