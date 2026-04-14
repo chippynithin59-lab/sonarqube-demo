@@ -2,20 +2,13 @@ pipeline {
     agent any
 
     tools {
-        // Ensure 'maven-3.9' is the exact name in Global Tool Configuration
-        maven 'maven' 
-    }
-
-    environment {
-        // Ensure 'SonarScanner' is the exact name in Global Tool Configuration
-        SONAR_SCANNER_HOME = tool 'SonarScanner' 
+        maven 'maven'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                // *** FIX: Explicitly specify the branch ***
-                git branch: 'main', 
+                git branch: 'main',
                     url: 'https://github.com/chippynithin59-lab/sonarqube-demo.git'
             }
         }
@@ -28,12 +21,11 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                // Ensure 'SonarQube' matches the server name in Jenkins config
-                withSonarQubeEnv('SonarQube') { 
+                withSonarQubeEnv('SonarQube') {
                     sh '''
-                    # Using the Maven sonar plugin for analysis
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=sonarqube-token
+                        mvn sonar:sonar \
+                        -Dsonar.projectKey=sonarqube-token \
+                        -Dsonar.login=$SONAR_AUTH_TOKEN
                     '''
                 }
             }
