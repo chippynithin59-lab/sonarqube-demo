@@ -33,7 +33,7 @@ pipeline {
                     sh '''
                     # Using the Maven sonar plugin for analysis
                     mvn sonar:sonar \
-                    -Dsonar.projectKey=jenkins-token
+                    -Dsonar.projectKey=sonarqube-token
                     '''
                 }
             }
